@@ -311,5 +311,360 @@
             </div>
         </div>
     </footer>
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-auth.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC66nhQBzJTYhwmC5xhOUZhjt3Em6du9Xk",
+    authDomai<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumePro AI - Create Professional Resumes Instantly</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Header with Navigation -->
+    <header class="bg-white py-4 px-4 sticky top-0 shadow-sm z-10">
+        <div class="max-w-4xl mx-auto flex flex-wrap justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">ResumePro AI</h1>
+            <nav class="flex flex-wrap gap-4 mt-2 sm:mt-0">
+                <a href="#hero" class="text-gray-600 hover:text-blue-600">Home</a>
+                <a href="#how-it-works" class="text-gray-600 hover:text-blue-600">How It Works</a>
+                <a href="#features" class="text-gray-600 hover:text-blue-600">Features</a>
+                <a href="#pricing" class="text-gray-600 hover:text-blue-600">Pricing</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-blue-600">Testimonials</a>
+                <a href="#resume-builder" class="text-gray-600 hover:text-blue-600">Build Resume</a>
+                <a href="#dashboard" class="text-gray-600 hover:text-blue-600">Dashboard</a>
+                <a href="#login" class="text-gray-600 hover:text-blue-600">Sign In/Up</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600">Contact</a>
+                <a href="#terms" class="text-gray-600 hover:text-blue-600">Terms</a>
+                <a href="#privacy" class="text-gray-600 hover:text-blue-600">Privacy</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="bg-blue-50 py-16 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Create Your Professional Resume in Minutes</h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-8">ResumePro AI crafts ATS-compliant resumes and cover letters tailored to your dream job.</p>
+            <a href="#resume-builder" class="inline-block bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition">Generate My Resume</a>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-100 text-blue-600 font-semibold text-xl w-12 h-12 flex items-center justify-center rounded-full mx-auto mb-4">1</div>
+                    <h3 class="text-xl font-semibold mb-2">Enter Your Details</h3>
+                    <p class="text-gray-600">Input your work experience, skills, and education in our simple form.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-blue-100 text-blue-600 font-semibold text-xl w-12 h-12 flex items-center justify-center rounded-full mx-auto mb-4">2</div>
+                    <h3 class="text-xl font-semibold mb-2">Customize Your Resume</h3>
+                    <p class="text-gray-600">Choose from professional templates and tweak the design to fit your style.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-blue-100 text-blue-600 font-semibold text-xl w-12 h-12 flex items-center justify-center rounded-full mx-auto mb-4">3</div>
+                    <h3 class="text-xl font-semibold mb-2">Download Instantly</h3>
+                    <p class="text-gray-600">Get your ATS-compliant resume and cover letter in PDF format.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="bg-gray-50 py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Why Choose ResumePro AI?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex items-start">
+                    <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <div>
+                        <h3 class="text-lg font-semibold">ATS-Compliant</h3>
+                        <p class="text-gray-600">Optimized to pass applicant tracking systems used by top employers.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <div>
+                        <h3 class="text-lg font-semibold">Fully Customizable</h3>
+                        <p class="text-gray-600">Tailor templates, fonts, and colors to match your personal brand.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <div>
+                        <h3 class="text-lg font-semibold">Instant Downloads</h3>
+                        <p class="text-gray-600">Download your resume and cover letter in seconds.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <div>
+                        <h3 class="text-lg font-semibold">AI-Powered Suggestions</h3>
+                        <p class="text-gray-600">Get smart tips to enhance your content and stand out.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section id="pricing" class="py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Pricing Plans</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="border rounded-lg p-6 text-center shadow-sm">
+                    <h3 class="text-2xl font-semibold mb-4">Free Plan</h3>
+                    <p class="text-4xl font-bold mb-4">$0</p>
+                    <ul class="text-gray-600 mb-6">
+                        <li class="mb-2">1 Resume & Cover Letter</li>
+                        <li class="mb-2">Basic Templates</li>
+                        <li>ATS-Compliant</li>
+                    </ul>
+                    <a href="#resume-builder" class="inline-block bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition">Get Started</a>
+                </div>
+                <div class="border border-blue-600 rounded-lg p-6 text-center shadow-sm">
+                    <h3 class="text-2xl font-semibold mb-4">Pro Plan</h3>
+                    <p class="text-4xl font-bold mb-4">$9.99/mo</p>
+                    <ul class="text-gray-600 mb-6">
+                        <li class="mb-2">Unlimited Resumes & Cover Letters</li>
+                        <li class="mb-2">Premium Templates</li>
+                        <li class="mb-2">AI-Powered Suggestions</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <a href="#payment" class="inline-block bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition">Go Pro</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="bg-blue-50 py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">What Our Users Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <p class="text-gray-600 mb-4">"ResumePro AI helped me land my dream job with a polished resume in just minutes!"</p>
+                    <p class="font-semibold">Sarah K., Marketing Manager</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <p class="text-gray-600 mb-4">"The templates are professional, and the AI suggestions made my resume stand out."</p>
+                    <p class="font-semibold">James L., Software Engineer</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <p class="text-gray-600 mb-4">"So easy to use, and the cover letter feature saved me hours of work."</p>
+                    <p class="font-semibold">Emily R., Graphic Designer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Builder Section -->
+    <section id="resume-builder" class="py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Build Your Professional Resume</h2>
+            <form class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <input type="text" id="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2" required>
+                </div>
+                <div>
+                    <label for="experience" class="block text-sm font-medium text-gray-700">Work Experience</label>
+                    <textarea id="experience" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2" rows="4"></textarea>
+                </div>
+                <div>
+                    <label for="skills" class="block text-sm font-medium text-gray-700">Skills</label>
+                    <textarea id="skills" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2" rows="4"></textarea>
+                </div>
+                <div>
+                    <label for="template" class="block text-sm font-medium text-gray-700">Select Template</label>
+                    <select id="template" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2">
+                        <option>Modern</option>
+                        <option>Classic</option>
+                        <option>Creative</option>
+                    </select>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition">Generate Resume</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- User Dashboard Section -->
+    <section id="dashboard" class="bg-gray-50 py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Your Dashboard</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold mb-4">Your Resumes</h3>
+                    <p class="text-gray-600">No resumes yet. <a href="#resume-builder" class="text-blue-600 hover:underline">Create one now</a>.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold mb-4">Account</h3>
+                    <p class="text-gray-600">Plan: Free | <a href="#payment" class="text-blue-600 hover:underline">Upgrade to Pro</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sign-Up/Login Section -->
+    <section id="login" class="py-16 px-4">
+        <div class="max-w-md mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Sign Up or Log In</h2>
+            <form class="space-y-6">
+                <div>
+                    <label for="login-email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="login-email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2" required>
+                </div>
+                <div>
+                    <label for="login-password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="login-password" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2" required>
+                </div>
+                <div class="flex space-x-4">
+                    <button type="submit" class="flex-1 bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition">Log In</button>
+                    <button type="submit" class="flex-1 bg-gray-200 text-gray-900 font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-blue-50 py-16 px-4">
+        <div class="max-w-md mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Contact Us</h2>
+            <form class="space-y-6">
+                <div>
+                    <label for="contact-name" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" id="contact-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2" required>
+                </div>
+                <div>
+                    <label for="contact-email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="contact-email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2" required>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                    <textarea id="message" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2" rows="4" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Terms of Service Section -->
+    <section id="terms" class="py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Terms of Service</h2>
+            <p class="text-gray-600 mb-4">Welcome to ResumePro AI. By using our service, you agree to these terms. Please read them carefully.</p>
+            <p class="text-gray-600 mb-4">[Add legal content here, such as usage rules, disclaimers, and limitations of liability. Consult a legal professional for accurate terms.]</p>
+            <p class="text-gray-600">For questions, contact us at <a href="#contact" class="text-blue-600 hover:underline">support@resumeproai.com</a>.</p>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Section -->
+    <section id="privacy" class="bg-gray-50 py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Privacy Policy</h2>
+            <p class="text-gray-600 mb-4">At ResumePro AI, we value your privacy. This policy explains how we collect, use, and protect your data.</p>
+            <p class="text-gray-600 mb-4">[Add legal content here, such as data collection practices, storage, and user rights. Consult a legal professional for compliance with GDPR/CCPA.]</p>
+            <p class="text-gray-600">For questions, contact us at <a href="#contact" class="text-blue-600 hover:underline">support@resumeproai.com</a>.</p>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section id="payment" class="py-16 px-4">
+        <div class="max-w-md mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Upgrade to Pro</h2>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm mb-6">
+                <h3 class="text-xl font-semibold mb-2">Pro Plan - $9.99/mo</h3>
+                <p class="text-gray-600">Unlimited resumes, premium templates, AI suggestions, and priority support.</p>
+            </div>
+            <form class="space-y-6">
+                <div>
+                    <label for="card" class="block text-sm font-medium text-gray-700">Card Number</label>
+                    <input type="text" id="card" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2" required>
+                </div>
+                <div class="flex space-x-4">
+                    <div class="flex-1">
+                        <label for="expiry" class="block text-sm font-medium text-gray-700">Expiry Date</label>
+                        <input type="text" id="expiry" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2" placeholder="MM/YY" required>
+                    </div>
+                    <div class="flex-1">
+                        <label for="cvc" class="block text-sm font-medium text-gray-700">CVC</label>
+                        <input type="text" id="cvc" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2" required>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition">Subscribe Now</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-lg font-semibold mb-4">ResumePro AI</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#contact" class="text-gray-400 hover:text-white">Contact</a>
+                <a href="#terms" class="text-gray-400 hover:text-white">Terms</a>
+                <a href="#privacy" class="text-gray-400 hover:text-white">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-auth.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC66nhQBzJTYhwmC5xhOUZhjt3Em6du9Xk",
+    authDomain: "resumeproai-d8c28.firebaseapp.com",
+    projectId: "resumeproai-d8c28",
+    storageBucket: "resumeproai-d8c28.appspot.com",
+    messagingSenderId: "349811073269",
+    appId: "1:349811073269:web:f9758df0ccf0ace1c865bc"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  
+  console.log("Firebase initialized successfully!");
+    </script>
+</body>
+</html>
+n: "resumeproai-d8c28.firebaseapp.com",
+    projectId: "resumeproai-d8c28",
+    storageBucket: "resumeproai-d8c28.appspot.com",
+    messagingSenderId: "349811073269",
+    appId: "1:349811073269:web:f9758df0ccf0ace1c865bc"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  
+  console.log("Firebase initialized successfully!");
+    </script>
 </body>
 </html>
